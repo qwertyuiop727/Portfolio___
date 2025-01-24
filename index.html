@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ae46c6eb21.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: whitesmoke;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            font-family: 'Barriecito', cursive;
+            color: black;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            padding: 0;
+           
+        }
+        .hey {
+            margin: 0;
+            padding: 0;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-container {
+            flex: 0 0 calc(30% - 20px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background-color: #1e1e1e;
+            cursor: pointer;
+        }
+
+        .image-container:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+            background-color: #292929;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-container:hover img {
+            opacity: 0.85;
+        }
+
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .fullscreen-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #ff6f61;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #181818;
+            color: #b0b0b0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff3d33;
+            text-decoration: underline;
+        }
+
+        
+
+        @media (max-width: 768px) {
+            .image-container {
+                flex: 0 0 calc(45% - 20px);
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-container {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="hey">Hey!</h1>
+    <h1 style=" text-decoration: underline;">I'm Adarsh</h1>
+    
+    <div class="image-gallery">
+        <div class="image-container" onclick="openFullscreen('images/coffee.jpg')">
+            <img src="images/coffee.jpg" alt="Coffee Project">
+        </div>
+        
+        <div class="image-container" onclick="openFullscreen('images/chirp.jpg')">
+            <img src="images/chirp.jpg" alt="Chirp Project">
+        </div>
+        
+        <div class="image-container" onclick="openFullscreen('images/plants.jpg')">
+            <img src="images/plants.jpg" alt="Plants Project">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/pl.JPG')">
+            <img src="images/pl.JPG" alt="PL Project">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/samurai.png')">
+            <img src="images/samurai.png" alt="Samurai Art">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/moon.JPG')">
+            <img src="images/moon.JPG" alt="Moon Photography">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/spd.JPG')">
+            <img src="images/spd.JPG" alt="Speed Project">
+        </div>
+        
+        <div class="image-container" onclick="openFullscreen('images/pro.JPG')">
+            <img src="images/pro.JPG" alt="Professional Look">
+        </div>
+        
+        <div class="image-container" onclick="openFullscreen('images/sp.PNG')">
+            <img src="images/sp.PNG" alt="Special Art">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/d.JPG')">
+            <img src="images/d.JPG" alt="Digital Art">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/specs.jpg')">
+            <img src="images/specs.jpg" alt="Specs Design">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/ita.png')">
+            <img src="images/ita.png" alt="ITA Project">
+        </div>
+        <div class="image-container" onclick="openFullscreen('images/E.png')">
+            <img src="images/E.png" alt="Highlight Project">
+        </div>
+    </div>
+
+    <div class="fullscreen-overlay" id="fullscreenOverlay">
+        <button class="close-btn" onclick="closeFullscreen()">×</button>
+        <img id="fullscreenImage" src="" alt="Fullscreen Image">
+    </div>
+    <h1 style="text-decoration: underline;">High Fidelity Wireframes</h1>
+    <div class="image-gallery">
+        <div class="image-container" onclick="openFullscreen('images/Home.jpg')">
+            <img src="images/Home.jpg" alt="Coffee Project">
+        </div>
+        
+        <div class="image-container" onclick="openFullscreen('images/Map.jpg')">
+            <img src="images/Map.jpg" alt="Chirp Project">
+        </div>
+        
+        <div class="image-container" onclick="openFullscreen('images/Monitoring.jpg')">
+            <img src="images/Monitoring.jpg" alt="Plants Project">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/Report.jpg')">
+            <img src="images/Report.jpg" alt="PL Project">
+        </div>
+
+        <div class="image-container" onclick="openFullscreen('images/Profile.jpg')">
+            <img src="images/Profile.jpg" alt="Samurai Art">
+        </div>
+
+    </div>
+    <footer>
+        
+        <div class="social-icons">
+            <i class="far  fa-envelope"></i>   </i>adarshbhootpur@gmail.com <br>
+                
+
+            <i class="fab fa-instagram"> </i> <a href="https://www.instagram.com/adarshb_09/">adarshb_09</a>
+                
+           
+        </div>
+       
+    </footer>
+
+    <script>
+        function openFullscreen(imageSrc) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            fullscreenImage.src = imageSrc;
+            overlay.style.display = 'flex';
+        }
+
+        function closeFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
